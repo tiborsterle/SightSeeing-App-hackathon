@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/header :: header('Lista atrakcija')}"></head>
+
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-end">
+        <a th:href="@{/attractions-view/new}" class="btn btn-success btn-sm mb-4">Nova atrakcija</a>
+    </div>
+    <table class="table table-striped" th:if="${not #lists.isEmpty(attractions)}">
+        <thead>
+        <tr>
+            <th>Mjesto</th>
+            <th>Naziv</th>
+            <th>Opis</th>
+            <th>Tip</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="attraction : ${attractions}">
+            <td th:text="${attraction.location}"></td>
+            <td th:text="${attraction.name}"></td>
+            <td th:text="${attraction.description}"></td>
+            <td th:text="${attraction.type}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <p th:if="${#lists.isEmpty(attractions)}" class="text-muted">
+        Nema podataka o atrakcijama
+    </p>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

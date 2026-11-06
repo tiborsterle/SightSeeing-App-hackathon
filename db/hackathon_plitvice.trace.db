@@ -1,0 +1,3 @@
+2026-07-31 16:52:06.144616+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "REQUEST_HEADERS CHARACTER VARYING(255)": "U&'Host: localhost:8080\\000aConnection: keep-alive\\000aContent-Length: 203\\000as... (631)"; SQL statement:
+insert into sightseeing_app.http_errors (http_code,message,request_body,request_headers,timestamp,type,uuid) values (?,?,?,?,?,?,?) [22001-240]
